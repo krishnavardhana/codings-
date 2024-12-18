@@ -1,0 +1,36 @@
+import time
+import random
+
+sample_texts = [
+    "The quick brown fox jumps over the lazy dog.",
+    "A journey of a thousand miles begins with a single step.",
+    "To be or not to be, that is the question.",
+    "Python is an easy to learn programming language.",
+    "The only limit to our realization of tomorrow is our doubts of today."
+]
+
+text_to_type = random.choice(sample_texts)
+
+print("Typing Test")
+print("-----------")
+print("Your text to type is:")
+print(f"\n{text_to_type}\n")
+input("Press Enter when you're ready to start...")
+
+start_time = time.time()
+
+user_input = input("\nStart typing the text above: ")
+
+end_time = time.time()
+
+time_taken = end_time - start_time
+word_count = len(user_input.split())
+wpm = (word_count / time_taken) * 60
+
+if user_input == text_to_type:
+    print("\nSuccess! You typed the text correctly.")
+else:
+    print("\nThere were some mistakes in your typing.")
+
+print(f"Time taken: {time_taken:.2f} seconds")
+print(f"Words per minute: {wpm:.2f} WPM")
